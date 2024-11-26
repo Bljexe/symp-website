@@ -1,0 +1,117 @@
+/* Fundo do Modal */
+.modal-backdrop {
+    background: rgba(0, 0, 0, 0.8) !important; /* Fundo mais escuro */
+}
+
+/* Container do Modal */
+.modal-content {
+    background: rgba(17, 17, 27, 0.9); /* Fundo escuro translúcido */
+    border-radius: 20px; /* Bordas arredondadas */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borda sutil */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5); /* Sombra */
+    overflow: hidden; /* Para evitar overflow de conteúdo */
+    color: #ffffff; /* Texto branco */
+    padding: 30px; /* Espaçamento interno */
+    animation: fadeIn 0.3s ease-out; /* Animação ao aparecer */
+}
+
+/* Animação ao abrir o modal */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header do Modal */
+.modal-header {
+    border-bottom: none; /* Remove a linha padrão */
+    text-align: center;
+    padding-bottom: 0;
+}
+
+.modal-header h5 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #a8a4ff; /* Cor do título */
+    margin-bottom: 10px;
+}
+
+.modal-header .btn-close {
+    color: #ffffff;
+    opacity: 1;
+}
+
+.modal-header .btn-close:hover {
+    color: #a8a4ff;
+}
+
+/* Corpo do Modal */
+.modal-body {
+    text-align: center;
+    font-size: 16px;
+}
+
+.modal-body p {
+    color: rgba(255, 255, 255, 0.7); /* Texto com opacidade */
+    margin-bottom: 20px;
+}
+
+/* Inputs Estilizados */
+.modal-body input.form-control {
+    background: rgba(255, 255, 255, 0.1); /* Fundo transparente */
+    color: #ffffff; /* Texto branco */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borda clara */
+    border-radius: 10px; /* Bordas arredondadas */
+    padding: 12px 15px; /* Espaçamento interno */
+    font-size: 14px;
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease;
+}
+
+.modal-body input.form-control:focus {
+    border-color: #a8a4ff; /* Cor ao focar */
+    box-shadow: 0px 0px 10px rgba(168, 164, 255, 0.5); /* Glow */
+}
+
+/* Botão de Ação */
+.modal-body button {
+    background-color: #6c63ff; /* Roxo vibrante */
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    padding: 12px 20px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.modal-body button:hover {
+    background-color: #5753d1; /* Roxo mais escuro */
+    transform: translateY(-2px); /* Efeito de elevação */
+}
+
+/* Links dentro do Modal */
+.modal-body a {
+    color: #a8a4ff;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.modal-body a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* Rodapé do Modal */
+.modal-footer {
+    border-top: none; /* Remove a linha padrão */
+    padding-top: 10px;
+    background: transparent;
+    text-align: center;
+}
