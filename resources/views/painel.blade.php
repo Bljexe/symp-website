@@ -434,6 +434,10 @@
                                         </tbody>
                                     </table>
                                 </div>
+                                <button class="btn btn-primary mt-3" data-bs-toggle="modal"
+                                    data-bs-target="#vincularContaModal">
+                                    Vincular Conta
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -468,6 +472,47 @@
                 </div>
             </div>
             <!-- Fim do Modal de Edição -->
+
+            <!-- Modal de Vincular Conta já existente do jogo -->
+            <div class="modal fade" id="vincularContaModal" tabindex="-1" aria-labelledby="vincularContaModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content bg-dark text-white">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="vincularContaModalLabel">Vincular Conta</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <form method="POST" action="{{ route('link.game.account') }}">
+                            @csrf
+                            <div class="modal-body text-center">
+                                <div class="mb-3">
+                                    <label for="cuenta" class="form-label">Conta</label>
+                                    <input type="text" class="form-control" id="cuenta" name="cuenta" required
+                                        placeholder="Informe o nome de usuário">
+                                    @error('cuenta')
+                                        <div class="text-danger mt-2" style="font-size: 14px;">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="mb-3">
+                                    <label for="contraseña" class="form-label">Senha</label>
+                                    <input type="password" class="form-control" id="contraseña" name="contraseña"
+                                        required placeholder="Informe a senha">
+                                    @error('contraseña')
+                                        <div class="text-danger mt-2" style="font-size: 14px;">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-primary">Vincular Conta</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Fim do Modal de Vincular Conta já existente do jogo -->
     </section>
     <script>
         const editarContaModal = document.getElementById('editarContaModal');

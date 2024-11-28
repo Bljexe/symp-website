@@ -64,6 +64,36 @@ Route::middleware(['auth.login'])->group(function () {
         return back()->with('success', 'Senha alterada com sucesso!');
     })->name('update.profile');
 
+    Route::post('/link-game-account', function (Request $request) {
+        $validated = $request->validate([
+            'cuenta' => 'required|exists:mysql2.cuentas,cuenta',
+            'contraseña' => 'required|string|min:8',
+        ]);
+
+        $cuenta = Cuenta::where('cuenta', $validated['cuenta'])
+            ->where('contraseña', $validated['contraseña'])
+            ->first();
+
+        if (!$cuenta) {
+            return redirect()->back()->with('error', 'Cuenta não encontrada ou senha incorreta.');
+        }
+
+        $contaExist = Contas::where('cuenta_id', $cuenta->id)
+            ->where('user_id', auth()->id())
+            ->exists();
+
+        if ($contaExist) {
+            return redirect()->back()->with('error', 'Conta já vinculada.');
+        }
+
+        Contas::create([
+            'user_id' => auth()->id(),
+            'cuenta_id' => $cuenta->id,
+        ]);
+
+        return redirect()->back()->with('success', 'Conta vinculada com sucesso!');
+    })->name('link.game.account');
+
     Route::post('/update-password', function (Request $request) {
         $validated = $request->validate([
             'id' => 'required|exists:mysql2.cuentas,id',
