@@ -54,13 +54,16 @@ Este projeto é um website desenvolvido para o gerenciamento de contas e criaç�
     ```bash
     php artisan migrate
     ```
-
-5. Inicie o servidor de desenvolvimento:
+5. Execute os Seeders:
+    ```bash
+    php artisan db:seed
+    ```
+6. Inicie o servidor de desenvolvimento:
     ```bash
     php artisan serve
     ```
 
-6. Acesse o projeto no navegador:
+7. Acesse o projeto no navegador:
     ```
     http://localhost:8000
     ```
